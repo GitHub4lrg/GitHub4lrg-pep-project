@@ -36,7 +36,7 @@ public class MessageDAO {
                 Message message = new Message(rs.getInt("message_id"),
                         rs.getInt("posted_by"),
                         rs.getString("message_text"),
-                        rs.getLong("time_posted_epoch");
+                        rs.getLong("time_posted_epoch"));
                 messages.add(message);
             }
         }catch(SQLException e){
@@ -62,7 +62,7 @@ public class MessageDAO {
                 Message message = new Message(rs.getInt("message_id"),
                         rs.getInt("posted_by"),
                         rs.getString("message_text"),
-                        rs.getLong("time_posted_epoch");
+                        rs.getLong("time_posted_epoch"));
                 return message;
             }
         }catch(SQLException e){
@@ -92,5 +92,82 @@ public class MessageDAO {
         }
         return null;
     }
+
+    /**
+     * delete a message from the message table, identified by its ID
+     * @return a message identified by ID
+     */
+    public Message deleteMessageByMessageId(int message_id){
+        Connection connection = ConnectionUtil.getConnection();
+        try{
+            //SQL logic here
+            String sql = "delete * from message where(message_id) = (?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            //preparedStatement's setInt method here
+            preparedStatement.setInt(1, message_id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                Message message = new Message(rs.getInt("message_id"),
+                        rs.getInt("posted_by"),
+                        rs.getString("message_text"),
+                        rs.getLong("time_posted_epoch"));
+                return message;
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    /**
+     * update a message from the message table, identified by its ID
+     * @return a message identified by ID
+     */
+    public Message updateMessageByMessageId(int message_id){
+        Connection connection = ConnectionUtil.getConnection();
+        try{
+            //SQL logic here
+            String sql = "update * from message where(message_id) = (?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            //preparedStatement's setInt method here
+            preparedStatement.setInt(1, message_id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                Message message = new Message(rs.getInt("message_id"),
+                        rs.getInt("posted_by"),
+                        rs.getString("message_text"),
+                        rs.getLong("time_posted_epoch"));
+                return message;
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+        /**
+         * retrieve all messages written by a particular user from ???message table
+         * @return all messages
+         */
+        public List<Message> getAllMessagesByUser(){
+            Connection connection = ConnectionUtil.getConnection();
+            List<Message> messages = new ArrayList<>();
+            try{
+                //SQL logic here
+                String sql = "select * from message where(posted_by) = (?);";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                ResultSet rs = preparedStatement.executeQuery();
+                while(rs.next()){
+                    Message message = new Message(rs.getInt("message_id"),
+                            rs.getInt("posted_by"),
+                            rs.getString("message_text"),
+                            rs.getLong("time_posted_epoch"));
+                    messages.add(message);
+                }
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
+            return messages;
+        }
     
 }
