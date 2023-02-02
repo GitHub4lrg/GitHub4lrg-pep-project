@@ -1,7 +1,7 @@
-commit 4b3f04cc5015aa679f71c16e2d4679d5d1e6a2a1
+commit 3a458d2046a7570f1c61e4b30fef2f56a797ebf4
 Author: Luis R Guerrero <lrgutube09@gmail.com>
-Date:   Wed Feb 1 21:12:17 2023 +0000
+Date:   Thu Feb 2 20:28:50 2023 +0000
 
-    built messageDAO class
+    started Services Classes
 
- 3 files changed, 109 insertions(+), 32 deletions(-)
+ 4 files changed, 127 insertions(+), 33 deletions(-)
