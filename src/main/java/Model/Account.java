@@ -22,6 +22,7 @@ public class Account {
     /**
      * A default, no-args constructor, as well as correctly formatted getters and setters, are needed for
      * Jackson Objectmapper to work.
+     * to automatically convert to/from JSON
      */
     public Account(){
 

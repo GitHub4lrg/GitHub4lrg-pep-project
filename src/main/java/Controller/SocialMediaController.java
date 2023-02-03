@@ -16,8 +16,8 @@ import java.util.List;
  * refer to prior mini-project labs and lecture materials for guidance on how a controller may be built.
  */
 public class SocialMediaController {
-    MessageService messageService;
     AccountService accountService;
+    MessageService messageService;
 
     public SocialMediaController(){
         this.accountService = new AccountService();
@@ -30,7 +30,15 @@ public class SocialMediaController {
      */
     public Javalin startAPI() {
         Javalin app = Javalin.create();
-        app.get("example-endpoint", this::exampleHandler);
+        //endpoint that return all accounts
+        app.post("/register", this::exampleHandler);    //post to create new acct for (user registration)
+        app.post("/login", this::exampleHandler);       //to verify user login
+        app.post("/messages", this::exampleHandler);    //new post for creation of new msg
+        app.get("/messages", this::exampleHandler);     //to submit get request to retrieve all msg
+        app.get("/messages/{message_id}", this::exampleHandler);       //to submit get request to retrieve a msg by its ID
+        app.delete("/messages/{message_id}", this::exampleHandler);    //to submit delete request to delete a msg by its ID
+        app.patch("/messages/{message_id}", this::exampleHandler);     //to submit patch request to update a msg text by its msg ID
+        app.get("/accounts/{account_id}/messages", this::exampleHandler);    //get request retrieve all msg written by particular user
 
         return app;
     }
