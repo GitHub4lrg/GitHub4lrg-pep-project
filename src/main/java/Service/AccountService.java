@@ -34,4 +34,7 @@ public class AccountService{
     public Account addAccount(Account account){
         return accountDAO.insertAccount(account);
     }
+    public List<Account> getAllUsers(Account account){
+        return accountDAO.getAllAccounts();
+    }
 }
