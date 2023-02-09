@@ -3,7 +3,7 @@ package Service;
 import Model.Message;
 import DAO.MessageDAO;
 
-import static org.mockito.ArgumentMatchers.nullable;
+//import static org.mockito.ArgumentMatchers.nullable;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class MessageService {
     }
     /**
      * Use the messageDAO to persist a message to the db.
-     * An message_id will be provided in message. Method should check if the message_id already exists before it attempts to
+     * A message_id will be provided in message. Method should check if the message_id already exists before it attempts to
      * persist it.
      * @param message a message object
      * @return message if successfully persisted, null if not successfully persisted (eg. if the message pk was already in use.)
@@ -53,5 +53,10 @@ public class MessageService {
         return null;
         messageDAO.insertMessage(message);
         return message;
+        
     }
+    public Message getMessageByMessageId(int message_id) {
+        return messageDAO.getMessageByMessageId(message_id);
+    }
+    
 }

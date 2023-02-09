@@ -10,7 +10,8 @@ import java.sql.SQLException;
 
 /**
  * The ConnectionUtil class will be utilized to create an active connection to our database. This class utilizes the singleton design pattern.
- * We will be utilizing an in-memory called h2database for the sql demos.
+ * We will be utilizing an in-memory called h2database for the sql demos. In-memory means that the database
+ * is dissolved when the program ends - it is only for use in testing.
  *
  * DO NOT CHANGE ANYTHING IN THIS CLASS
  */

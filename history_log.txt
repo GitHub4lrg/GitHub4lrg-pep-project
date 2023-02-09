@@ -1,7 +1,7 @@
-commit ab2baaf37553a9f962c13b123f23cdc9b97c2378
+commit 029ca3ea720e68501546c4dd2a2b848f5e953a24
 Author: Luis R Guerrero <lrgutube09@gmail.com>
-Date:   Fri Feb 3 21:49:36 2023 +0000
+Date:   Mon Feb 6 18:15:32 2023 +0000
 
-    work controller
+    continue with the controller class
 
- 5 files changed, 44 insertions(+), 36 deletions(-)
+ 4 files changed, 402 insertions(+), 256 deletions(-)
