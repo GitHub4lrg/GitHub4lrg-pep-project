@@ -170,5 +170,25 @@ public class MessageDAO {
             }
             return messages;
         }
+
+        public Message getMessageByAccountId(int account_id) {
+            Connection connection = ConnectionUtil.getConnection();
+            try{
+                //SQL logic here
+                String sql = "select message.message_text from message join account on message.posted_by = account.account_id where account.account_id = ?;";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                //preparedStatement's setInt method here
+                preparedStatement.setInt(1, account_id);
+                ResultSet rs = preparedStatement.executeQuery();
+                while(rs.next()){
+                    Message messages = new Message(account_id, 
+                            rs.getString("message_text"), account_id);
+                    return messages;
+                }
+            }catch(SQLException e){
+                System.out.println(e.getMessage());
+            }
+            return null;
+        } 
     
 }

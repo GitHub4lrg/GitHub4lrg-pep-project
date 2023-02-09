@@ -35,10 +35,10 @@ public class SocialMediaController {
         app.post("/login", this::postLoginAccountHandler);       //to verify user login
         app.post("/messages", this::postMessageHandler);    //new post for creation of new msg
         app.get("/messages", this::getAllMessagesHandler);     //to submit get request to retrieve all msg
-        //app.get("/messages/{message_id}", this::getMessageByMessageIdHandler);       //to submit get request to retrieve a msg by its ID
-        //app.delete("/messages/{message_id}", this::exampleHandler);    //to submit delete request to delete a msg by its ID
-        //app.patch("/messages/{message_id}", this::exampleHandler);     //to submit patch request to update a msg text by its msg ID
-        //app.get("/accounts/{account_id}/messages", this::exampleHandler);    //get request retrieve all msg written by particular user
+        app.get("/messages/{message_id}", this::getMessageByMessageIdHandler);       //to submit get request to retrieve a msg by its ID
+        app.delete("/messages/{message_id}", this::deleteMessageByMessageIdHandler);    //to submit delete request to delete a msg by its ID
+        app.patch("/messages/{message_id}", this::patchMessageByMessageIdHandler);     //to submit patch request to update a msg text by its msg ID
+        app.get("/accounts/{account_id}/messages", this::getMessageByAccountIdHandler);    //get request retrieve all msg written by particular user
 
         return app;
     }
@@ -119,6 +119,20 @@ public class SocialMediaController {
     public void getMessageByMessageIdHandler(Context ctx){
         Message message = messageService.getMessageByMessageId(0);
         ctx.json(message);
+    }
 
+    public void deleteMessageByMessageIdHandler(Context ctx){
+        Message message = messageService.deleteMessageByMessageId(0);
+        ctx.json(message);
+    }
+
+    public void patchMessageByMessageIdHandler(Context ctx){
+        Message message = messageService.deleteMessageByMessageId(0);
+        ctx.json(message);
+    }
+
+    public void getMessageByAccountIdHandler(Context ctx){
+        Message messages = messageService.getMessageByAccountId(0);
+        ctx.json(messages);
     }
 }

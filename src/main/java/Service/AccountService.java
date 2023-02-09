@@ -1,6 +1,7 @@
 package Service;
 
 import Model.Account;
+import Model.Message;
 import DAO.AccountDAO;
 
 import java.util.List;
@@ -32,7 +33,9 @@ public class AccountService{
         this.accountDAO = accountDAO;
     }
     public Account addAccount(Account account){
+        
         return accountDAO.insertAccount(account);
+        
         //Account newAccount = this.accountDAO.getAccountByAccountId(account.getAccount_id());
         //if(newAccount != null || newAccount.getUsername() == null || newAccount.getPassword().length() < 4)
         //return null;
@@ -43,4 +46,5 @@ public class AccountService{
     public List<Account> getAllUsers(Account account){
         return accountDAO.getAllAccounts();
     }
+    
 }
