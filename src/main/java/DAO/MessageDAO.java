@@ -102,7 +102,7 @@ public class MessageDAO {
         Connection connection = ConnectionUtil.getConnection();
         try{
             //SQL logic here
-            String sql = "delete * from message where(message_id) = (?);";
+            String sql = "delete message_text from message where(message_id) = (?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             //preparedStatement's setInt method here
             preparedStatement.setInt(1, message_id);
@@ -124,22 +124,19 @@ public class MessageDAO {
      * update a message from the message table, identified by its ID
      * @return a message identified by ID
      */
-    public Message updateMessageByMessageId(int message_id){
+    public Message updateMessageByMessageId(int message_id, Message message){
         Connection connection = ConnectionUtil.getConnection();
         try{
             //SQL logic here
-            String sql = "update * from message where(message_id) = (?);";
+            String sql = "update message set message_text = ? where message_id = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            
             //preparedStatement's setInt method here
-            preparedStatement.setInt(1, message_id);
-            ResultSet rs = preparedStatement.executeQuery();
-            while(rs.next()){
-                Message message = new Message(rs.getInt("message_id"),
-                        rs.getInt("posted_by"),
-                        rs.getString("message_text"),
-                        rs.getLong("time_posted_epoch"));
-                return message;
-            }
+            preparedStatement.setString(1, message.message_text);
+            preparedStatement.setInt(2, message_id);
+
+            preparedStatement.executeQuery();
+            
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
@@ -150,7 +147,7 @@ public class MessageDAO {
          * retrieve all messages written by a particular user from ???message table
          * @return all messages
          */
-        public List<Message> getAllMessagesByUser(){
+        public Message getMessageByPostedBy(){
             Connection connection = ConnectionUtil.getConnection();
             List<Message> messages = new ArrayList<>();
             try{
@@ -168,27 +165,6 @@ public class MessageDAO {
             }catch(SQLException e){
                 System.out.println(e.getMessage());
             }
-            return messages;
-        }
-
-        public Message getMessageByAccountId(int account_id) {
-            Connection connection = ConnectionUtil.getConnection();
-            try{
-                //SQL logic here
-                String sql = "select message.message_text from message join account on message.posted_by = account.account_id where account.account_id = ?;";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                //preparedStatement's setInt method here
-                preparedStatement.setInt(1, account_id);
-                ResultSet rs = preparedStatement.executeQuery();
-                while(rs.next()){
-                    Message messages = new Message(account_id, 
-                            rs.getString("message_text"), account_id);
-                    return messages;
-                }
-            }catch(SQLException e){
-                System.out.println(e.getMessage());
-            }
             return null;
-        } 
-    
+        }
 }

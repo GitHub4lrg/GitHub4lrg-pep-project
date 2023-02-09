@@ -32,17 +32,16 @@ public class AccountService{
     public AccountService(AccountDAO accountDAO){
         this.accountDAO = accountDAO;
     }
+
+    
     public Account addAccount(Account account){
-        
+        //Account newAccount = accountDAO.insertAccount(account);
+        //if(newAccount != null)
         return accountDAO.insertAccount(account);
         
-        //Account newAccount = this.accountDAO.getAccountByAccountId(account.getAccount_id());
-        //if(newAccount != null || newAccount.getUsername() == null || newAccount.getPassword().length() < 4)
         //return null;
-        //accountDAO.insertAccount(account);
-        //return account;
-
     }
+
     public List<Account> getAllUsers(Account account){
         return accountDAO.getAllAccounts();
     }

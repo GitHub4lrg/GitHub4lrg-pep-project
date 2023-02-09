@@ -31,14 +31,14 @@ public class SocialMediaController {
     public Javalin startAPI() {
         Javalin app = Javalin.create();
         //endpoint that return all accounts
-        app.post("/register", this::postAccountHandler);    //post to create new acct for (user registration)
+        app.post("/register", this::postnewAccountHandler);    //post to create new acct for (user registration)
         app.post("/login", this::postLoginAccountHandler);       //to verify user login
         app.post("/messages", this::postMessageHandler);    //new post for creation of new msg
         app.get("/messages", this::getAllMessagesHandler);     //to submit get request to retrieve all msg
         app.get("/messages/{message_id}", this::getMessageByMessageIdHandler);       //to submit get request to retrieve a msg by its ID
         app.delete("/messages/{message_id}", this::deleteMessageByMessageIdHandler);    //to submit delete request to delete a msg by its ID
-        app.patch("/messages/{message_id}", this::patchMessageByMessageIdHandler);     //to submit patch request to update a msg text by its msg ID
-        app.get("/accounts/{account_id}/messages", this::getMessageByAccountIdHandler);    //get request retrieve all msg written by particular user
+        app.patch("/messages/{message_id}", this::updateMessageByMessageIdHandler);     //to submit patch request to update a msg text by its msg ID
+        app.get("/accounts/{account_id}/messages", this::getMessageByPostedByHandler);    //get request retrieve all msg written by particular user
 
         return app;
     }
@@ -53,14 +53,14 @@ public class SocialMediaController {
      *            be available to this method automatically thanks to the app.post method.
      * @throws JsonProcessingException will be thrown if there is an issue converting JSON into an object.
      */
-    private void postAccountHandler(Context ctx) throws JsonProcessingException {
+    private void postnewAccountHandler(Context ctx) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Account account = mapper.readValue(ctx.body(), Account.class);
         Account addedAccount = accountService.addAccount(account);
-        if(addedAccount != null){
-            ctx.json(mapper.writeValueAsString(addedAccount));
-        }else{
+        if(addedAccount == null){
             ctx.status(400);
+        }else{
+            ctx.json(mapper.writeValueAsString(addedAccount));
         }   
     }
 
@@ -78,7 +78,7 @@ public class SocialMediaController {
         ObjectMapper mapper = new ObjectMapper();
         Account account = mapper.readValue(ctx.body(), Account.class);
         List<Account> verifyAccount = accountService.getAllUsers(account);
-        if(verifyAccount != null){
+        if(verifyAccount == null){
             ctx.json(mapper.writeValueAsString(verifyAccount));
         }else{
             ctx.status(401);
@@ -100,9 +100,9 @@ public class SocialMediaController {
         Message message = mapper.readValue(ctx.body(), Message.class);
         Message newMessage = messageService.addMessage(message);
         if(newMessage != null){
-            ctx.json(mapper.writeValueAsString(newMessage));
-        }else{
             ctx.status(400);
+        }else{
+            ctx.json(mapper.writeValueAsString(newMessage));
         }
     }
 
@@ -126,13 +126,21 @@ public class SocialMediaController {
         ctx.json(message);
     }
 
-    public void patchMessageByMessageIdHandler(Context ctx){
-        Message message = messageService.deleteMessageByMessageId(0);
-        ctx.json(message);
+    public void updateMessageByMessageIdHandler(Context ctx) throws JsonProcessingException{
+        ObjectMapper mapper = new ObjectMapper();
+        Message message = mapper.readValue(ctx.body(), Message.class);
+        int message_id = Integer.parseInt(ctx.pathParam("message_id"));
+        Message updatedMessage = messageService.updateMessageByMessageId(message_id, message);
+        System.out.println(updatedMessage);
+        if(updatedMessage == null){
+            ctx.status(400);
+        }else{
+        ctx.json(mapper.writeValueAsString(updatedMessage));
+        }
     }
 
-    public void getMessageByAccountIdHandler(Context ctx){
-        Message messages = messageService.getMessageByAccountId(0);
+    public void getMessageByPostedByHandler(Context ctx){
+        Message messages = messageService.getMessageByPostedBy(0);
         ctx.json(messages);
     }
 }

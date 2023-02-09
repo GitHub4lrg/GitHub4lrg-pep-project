@@ -64,12 +64,16 @@ public class MessageService {
         return messageDAO.deleteMessageByMessageId(message_id);
     }
 
-    public Message updateMessageByMessageId(int message_id) {
-        return messageDAO.updateMessageByMessageId(message_id);
+    public Message updateMessageByMessageId(int message_id, Message message) {
+        Message messageOnDb = messageDAO.getMessageByMessageId(message_id);
+        if(messageOnDb == null)
+        return null;
+        messageDAO.updateMessageByMessageId(message_id, message);
+        return messageOnDb;
     }
 
-    public Message getMessageByAccountId(int account_id) {
-        return messageDAO.getMessageByAccountId(account_id);
+    public Message getMessageByPostedBy(int posted_by) {
+        return messageDAO.getMessageByPostedBy();
     }
     
 }

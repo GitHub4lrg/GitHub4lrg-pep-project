@@ -1,7 +1,7 @@
-commit 702b5e4cba2da9074803679ea743228c41f284ac
+commit 02604c8cea7d2b0d740bf8223b6d19032abf2bd8
 Author: Luis R Guerrero <lrgutube09@gmail.com>
-Date:   Thu Feb 9 06:19:28 2023 +0000
+Date:   Thu Feb 9 15:34:35 2023 +0000
 
-    changes to controller
+    continue edit
 
- 8 files changed, 2075 insertions(+), 454 deletions(-)
+ 7 files changed, 373 insertions(+), 2171 deletions(-)
