@@ -61,7 +61,10 @@ public class MessageService {
     }
     
     public Message deleteMessageByMessageId(int message_id) {
+        Message messageOnDb = messageDAO.getMessageByMessageId(message_id);
+        if(messageOnDb != null)
         return messageDAO.deleteMessageByMessageId(message_id);
+        return null;
     }
 
     public Message updateMessageByMessageId(int message_id, Message message) {

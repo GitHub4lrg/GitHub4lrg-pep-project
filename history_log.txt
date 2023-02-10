@@ -1,7 +1,7 @@
-commit 02604c8cea7d2b0d740bf8223b6d19032abf2bd8
+commit bf32c16553e17d5768e9346b355a909031a3a23e
 Author: Luis R Guerrero <lrgutube09@gmail.com>
-Date:   Thu Feb 9 15:34:35 2023 +0000
+Date:   Thu Feb 9 22:15:29 2023 +0000
 
-    continue edit
+    changes to the 3 layers
 
- 7 files changed, 373 insertions(+), 2171 deletions(-)
+ 7 files changed, 88 insertions(+), 121 deletions(-)

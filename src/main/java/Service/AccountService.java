@@ -35,11 +35,7 @@ public class AccountService{
 
     
     public Account addAccount(Account account){
-        //Account newAccount = accountDAO.insertAccount(account);
-        //if(newAccount != null)
         return accountDAO.insertAccount(account);
-        
-        //return null;
     }
 
     public List<Account> getAllUsers(Account account){
