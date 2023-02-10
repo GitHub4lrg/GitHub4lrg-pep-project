@@ -25,20 +25,23 @@ public class AccountDAO {
     public Account getAllAccounts(Account account){
         Connection connection = ConnectionUtil.getConnection();
         try{
-            String sql = "select * from account where (username, password) values (?, ?);";
+            String sql = "select * from account where username = ? and password = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //preparedStatement's setString methods here
             preparedStatement.setString(1, account.getUsername());
             preparedStatement.setString(2, account.getPassword());
             ResultSet rs = preparedStatement.executeQuery();
-            while(rs.next()){
-                return new Account(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"));
+            if(rs.next()){
+                Account log = new Account(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"));
+            //    return new Account(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"));
+           System.out.println(log);
+           return log;
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
-        return account;
+        return null;
     }
     /**
     * add an account into the account table
@@ -59,6 +62,7 @@ public class AccountDAO {
             preparedStatement.setString(2, account.password);
             preparedStatement.executeUpdate();
             ResultSet pkeyResultSet = preparedStatement.getGeneratedKeys();
+            System.out.println(account);
             if(pkeyResultSet.next()){
                 int generated_account_id = (int) pkeyResultSet.getLong(1);
                 return new Account(generated_account_id, account.getUsername(), account.getPassword());
