@@ -1,10 +1,8 @@
 package Service;
 
 import Model.Account;
-import Model.Message;
 import DAO.AccountDAO;
 
-import java.util.List;
 
 /**The purpose of a Service class is to contain "business logic" that sits between the web layer (controller) and
 * persistence layer (DAO). That means that the Service class performs tasks that aren't done through the web or
@@ -35,6 +33,9 @@ public class AccountService{
 
     
     public Account addAccount(Account account){
+        if(account.getUsername() == "" || account.getPassword().length() < 4){
+            return null;
+        }
         return accountDAO.insertAccount(account);
     }
 

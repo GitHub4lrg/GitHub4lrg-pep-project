@@ -1,12 +1,9 @@
 package DAO;
 
 import Model.Account;
-import Model.Message;
 import Util.ConnectionUtil;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A DAO is a class that mediates the transformation of data btw the format of obj in Java to rows in
@@ -32,11 +29,8 @@ public class AccountDAO {
             preparedStatement.setString(1, account.getUsername());
             preparedStatement.setString(2, account.getPassword());
             ResultSet rs = preparedStatement.executeQuery();
-            if(rs.next()){
-                Account log = new Account(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"));
-            //    return new Account(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"));
-           System.out.println(log);
-           return log;
+            while(rs.next()){
+                return new Account(rs.getInt("account_id"), rs.getString("username"), rs.getString("password"));
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());
@@ -62,7 +56,7 @@ public class AccountDAO {
             preparedStatement.setString(2, account.password);
             preparedStatement.executeUpdate();
             ResultSet pkeyResultSet = preparedStatement.getGeneratedKeys();
-            System.out.println(account);
+            //System.out.println(account);
             if(pkeyResultSet.next()){
                 int generated_account_id = (int) pkeyResultSet.getLong(1);
                 return new Account(generated_account_id, account.getUsername(), account.getPassword());

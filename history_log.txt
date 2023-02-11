@@ -1,7 +1,7 @@
-commit 3005851276395ea49c3980fbc609165d90481d06
+commit de53e6f2a8e26af1b56082354153b3786a9caca8
 Author: Luis R Guerrero <lrgutube09@gmail.com>
-Date:   Fri Feb 10 19:42:18 2023 +0000
+Date:   Fri Feb 10 21:07:53 2023 +0000
 
-    changes
+    finished authintegration
 
- 5 files changed, 34 insertions(+), 136 deletions(-)
+ 5 files changed, 42 insertions(+), 31 deletions(-)

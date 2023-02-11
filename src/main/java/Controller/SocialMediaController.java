@@ -57,13 +57,12 @@ public class SocialMediaController {
         ObjectMapper mapper = new ObjectMapper();
         Account account = mapper.readValue(ctx.body(), Account.class);
         Account addedAccount = accountService.addAccount(account);
-        if(addedAccount == null || addedAccount.getUsername() == "" || addedAccount.getPassword().length() < 4){
+        if(addedAccount == null){
             ctx.status(400);
         }else{
             ctx.json(mapper.writeValueAsString(addedAccount));
         }   
     }
-
     /**
      * Handler to proccess a User login. (verify a User login on the endpoint)
      * The Jackson ObjectMapper will automatically convert the JSON of the POST request into an Account object.

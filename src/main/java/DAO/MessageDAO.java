@@ -24,25 +24,28 @@ public class MessageDAO {
      * retrieve all messages from message table
      * @return all messages
      */
-    public List<Message> getAllMessages(){
+    public Message getAllMessages(Message message){
         Connection connection = ConnectionUtil.getConnection();
-        List<Message> messages = new ArrayList<>();
+        //List<Message> messages = new ArrayList<>();
         try{
             //SQL logic here
             String sql = "select * from message;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
+            System.out.println(message);
             while(rs.next()){
-                Message message = new Message(rs.getInt("message_id"),
+                return new Message(rs.getInt("message_id"),
                         rs.getInt("posted_by"),
                         rs.getString("message_text"),
                         rs.getLong("time_posted_epoch"));
-                messages.add(message);
+                        
+                //messages.add(message);
+                //return messages;
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
-        return messages;
+        return null;
     }
 
     /**
@@ -144,16 +147,18 @@ public class MessageDAO {
     }
 
         /**
-         * retrieve all messages written by a particular user from ???message table
+         * retrieve all messages written by a particular user from message table
          * @return all messages
          */
-        public Message getMessageByPostedBy(){
+        public Message getMessageByPostedBy(int posted_by){
             Connection connection = ConnectionUtil.getConnection();
             List<Message> messages = new ArrayList<>();
             try{
                 //SQL logic here
-                String sql = "select * from message where(posted_by) = (?);";
+                String sql = "select * from message where posted_by = ?;";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+                preparedStatement.setInt(1, posted_by);
                 ResultSet rs = preparedStatement.executeQuery();
                 while(rs.next()){
                     Message message = new Message(rs.getInt("message_id"),
