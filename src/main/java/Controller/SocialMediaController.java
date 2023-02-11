@@ -38,7 +38,7 @@ public class SocialMediaController {
         app.get("/messages/{message_id}", this::getMessageByMessageIdHandler);       //to submit get request to retrieve a msg by its ID
         app.delete("/messages/{message_id}", this::deleteMessageByMessageIdHandler);    //to submit delete request to delete a msg by its ID
         app.patch("/messages/{message_id}", this::updateMessageByMessageIdHandler);     //to submit patch request to update a msg text by its msg ID
-        app.get("/accounts/{account_id}/messages", this::getMessageByPostedByHandler);    //get request retrieve all msg written by particular user
+        app.get("/accounts/{account_id}/messages", this::getMessagePostedByHandler);    //get request retrieve all msg written by particular user
 
         return app;
     }
@@ -80,7 +80,6 @@ public class SocialMediaController {
         if(verifyAccount != null){
             System.out.println(verifyAccount);
             ctx.json(mapper.writeValueAsString(verifyAccount));
-            //ctx.json(account);
         }else{
             ctx.status(401);
         }   
@@ -106,7 +105,6 @@ public class SocialMediaController {
             ctx.json(mapper.writeValueAsString(newMessage));
         }
     }
-
     /**
      * Handler to retrieve all messages.
      * @param ctx the context object handles information HTTP requests and generates responses within Javalin. It will
@@ -148,8 +146,8 @@ public class SocialMediaController {
         }
     }
 
-    public void getMessageByPostedByHandler(Context ctx){
-        Message messages = messageService.getMessageByPostedBy(0);
+    public void getMessagePostedByHandler(Context ctx){
+        Message messages = messageService.getMessagePostedBy(0);
         ctx.json(messages);
     }
 }

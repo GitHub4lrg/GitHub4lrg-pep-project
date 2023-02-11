@@ -24,24 +24,22 @@ public class MessageDAO {
      * retrieve all messages from message table
      * @return all messages
      */
-    public Message getAllMessages(Message message){
+    public List<Message> getAllMessages(){
         Connection connection = ConnectionUtil.getConnection();
-        //List<Message> messages = new ArrayList<>();
+        List<Message> messages = new ArrayList<>();
         try{
             //SQL logic here
             String sql = "select * from message;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
-            System.out.println(message);
-            while(rs.next()){
-                return new Message(rs.getInt("message_id"),
+             while(rs.next()){
+                Message message = new Message(rs.getInt("message_id"),
                         rs.getInt("posted_by"),
                         rs.getString("message_text"),
                         rs.getLong("time_posted_epoch"));
                         
-                //messages.add(message);
-                //return messages;
-            }
+                messages.add(message);
+            }return messages;
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
@@ -56,8 +54,9 @@ public class MessageDAO {
         Connection connection = ConnectionUtil.getConnection();
         try{
             //SQL logic here
-            String sql = "select * from message where(message_id) = (?);";
+            String sql = "select * from message where message_id = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
             //preparedStatement's setInt method here
             preparedStatement.setInt(1, message_id);
             ResultSet rs = preparedStatement.executeQuery();
@@ -105,8 +104,9 @@ public class MessageDAO {
         Connection connection = ConnectionUtil.getConnection();
         try{
             //SQL logic here
-            String sql = "delete message_text from message where(message_id) = (?);";
+            String sql = "delete * from message where message_id = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
             //preparedStatement's setInt method here
             preparedStatement.setInt(1, message_id);
             ResultSet rs = preparedStatement.executeQuery();
@@ -150,7 +150,7 @@ public class MessageDAO {
          * retrieve all messages written by a particular user from message table
          * @return all messages
          */
-        public Message getMessageByPostedBy(int posted_by){
+        public Message getMessagePostedBy(int posted_by){
             Connection connection = ConnectionUtil.getConnection();
             List<Message> messages = new ArrayList<>();
             try{

@@ -40,7 +40,7 @@ public class MessageService {
      * @return all messages
      */
     public List<Message> getAllMessages() {
-        return null;
+        return messageDAO.getAllMessages();
      
     }
     /**
@@ -64,22 +64,24 @@ public class MessageService {
     }
     
     public Message deleteMessageByMessageId(int message_id) {
-        Message messageOnDb = messageDAO.getMessageByMessageId(message_id);
-        if(messageOnDb != null)
-        return messageDAO.deleteMessageByMessageId(message_id);
+        Message messageOnDb = this.messageDAO.getMessageByMessageId(message_id);
+        if(messageOnDb == null)
         return null;
+        messageDAO.deleteMessageByMessageId(message_id);
+        return this.messageDAO.getMessageByMessageId(message_id);
+        
     }
 
     public Message updateMessageByMessageId(int message_id, Message message) {
-        Message messageOnDb = messageDAO.getMessageByMessageId(message_id);
+        Message messageOnDb = this.messageDAO.getMessageByMessageId(message_id);
         if(messageOnDb == null)
         return null;
         messageDAO.updateMessageByMessageId(message_id, message);
-        return messageOnDb;
+        return this.messageDAO.getMessageByMessageId(message_id);
     }
 
-    public Message getMessageByPostedBy(int posted_by) {
-        return messageDAO.getMessageByPostedBy(posted_by);
+    public Message getMessagePostedBy(int posted_by) {
+        return messageDAO.getMessagePostedBy(posted_by);
     }
     
     
