@@ -51,16 +51,15 @@ public class MessageService {
      * @return message if successfully persisted, null if not successfully persisted (eg. if the message pk was already in use.)
      */
     public Message addMessage(Message message){
-        System.out.println(message+"1");
-    /*     Message newMessage = this.messageDAO.getMessageByMessageId(message.getMessage_id());
-        
-        if(newMessage != null) return null;*/
-
+        if(message.getMessage_text() == "")
+        return null;
         return messageDAO.insertMessage(message);
-        //return message;
-        
     }
-
+    /**
+     * 
+     * @param message_id
+     * @return
+     */
     public Message getMessageByMessageId(int message_id) {
         return messageDAO.getMessageByMessageId(message_id);
         
@@ -77,13 +76,13 @@ public class MessageService {
 
     public Message updateMessageByMessageId(int message_id, Message message) {
         Message messageOnDb = this.messageDAO.getMessageByMessageId(message_id);
-        if(messageOnDb == null)
+        if(messageOnDb == null || message.getMessage_text() == "" || message.getMessage_text().length() > 255)
         return null;
         messageDAO.updateMessageByMessageId(message_id, message);
         return this.messageDAO.getMessageByMessageId(message_id);
     }
 
-    public List<Message> getMessagePostedBy(int posted_by) {
+        public List<Message> getMessagePostedBy(int posted_by) {
         return messageDAO.getMessagePostedBy(posted_by);
     }
     

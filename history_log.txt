@@ -1,7 +1,7 @@
-commit d038c8e529867df7fa584e2242441bffee9fd7a6
+commit 508253d03c7bda26e4806c6d770501969f05b1b7
 Author: Luis R Guerrero <lrgutube09@gmail.com>
-Date:   Sun Feb 12 01:08:28 2023 +0000
+Date:   Sun Feb 12 19:33:59 2023 +0000
 
-    working post & acct msg
+    finish delete
 
- 5 files changed, 27 insertions(+), 77 deletions(-)
+ 5 files changed, 59 insertions(+), 87 deletions(-)
