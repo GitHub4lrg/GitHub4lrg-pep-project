@@ -121,17 +121,14 @@ public class SocialMediaController {
     }
 
     public void deleteMessageByMessageIdHandler(Context ctx) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        Message message = mapper.readValue(ctx.body(), Message.class);
         int message_id = Integer.parseInt(ctx.pathParam("message_id"));
-        Message deletedMessage = messageService.deleteMessageByMessageId(message_id);
-        //System.out.println(deletedMessage);
-        if(deletedMessage != null){
-            ctx.json(deletedMessage);
+        Message message = messageService.deleteMessageByMessageId(message_id);
+        if(message != null){
+            ctx.json(message);
         }
         ctx.status(200);
-        ctx.json(deletedMessage);
-    }
+    } 
+
 
     public void updateMessageByMessageIdHandler(Context ctx) throws JsonProcessingException{
         ObjectMapper mapper = new ObjectMapper();
@@ -141,9 +138,8 @@ public class SocialMediaController {
         System.out.println(updatedMessage);
         if(updatedMessage == null){
             ctx.status(400);
-        }else{
-        ctx.json(mapper.writeValueAsString(updatedMessage));
         }
+        ctx.json(mapper.writeValueAsString(updatedMessage));
     }
 
     public void getMessagePostedByHandler(Context ctx){

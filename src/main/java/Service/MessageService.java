@@ -64,13 +64,13 @@ public class MessageService {
     }
     
     public Message deleteMessageByMessageId(int message_id) {
-        Message messageOnDb = this.messageDAO.getMessageByMessageId(message_id);
+        Message messageOnDb = messageDAO.getMessageByMessageId(message_id);
         if(messageOnDb == null)
         return null;
         messageDAO.deleteMessageByMessageId(message_id);
-        return this.messageDAO.getMessageByMessageId(message_id);
-        
+        return messageOnDb;
     }
+    
 
     public Message updateMessageByMessageId(int message_id, Message message) {
         Message messageOnDb = this.messageDAO.getMessageByMessageId(message_id);
