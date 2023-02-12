@@ -30,15 +30,22 @@ public class AccountService{
     public AccountService(AccountDAO accountDAO){
         this.accountDAO = accountDAO;
     }
-
-    
+    /**
+     * 
+     * @param account
+     * @return
+     */    
     public Account addAccount(Account account){
         if(account.getUsername() == "" || account.getPassword().length() < 4){
             return null;
         }
         return accountDAO.insertAccount(account);
     }
-
+    /**
+     * 
+     * @param account
+     * @return
+     */
     public Account getAllAccounts(Account account){
         return accountDAO.getAllAccounts(account);
     }

@@ -34,295 +34,39 @@ null
 Account{account_id=1, username='user', password='password'}
 null
 Account{account_id=1, username='user', password='password'}
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.319 s - in AuthIntegrationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.039 s - in AuthIntegrationTest
 [INFO] Running MessagingIntegrationTest
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=2, username='user2', password='password'}
-Message{message_id=0, posted_by=1, message_text='message 2', time_posted_epoch=1669947792}1
-Message{message_id=2, posted_by=1, message_text='message 2', time_posted_epoch=1669947792}
-Message{message_id=0, posted_by=2, message_text='message 3', time_posted_epoch=1669947792}1
-Message{message_id=3, posted_by=2, message_text='message 3', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=2, username='user2', password='password'}
-Message{message_id=0, posted_by=1, message_text='message 2', time_posted_epoch=1669947792}1
-Message{message_id=2, posted_by=1, message_text='message 2', time_posted_epoch=1669947792}
-Message{message_id=0, posted_by=2, message_text='message 3', time_posted_epoch=1669947792}1
-Message{message_id=3, posted_by=2, message_text='message 3', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
 Referential integrity constraint violation: "CONSTRAINT_63: PUBLIC.MESSAGE FOREIGN KEY(POSTED_BY) REFERENCES PUBLIC.ACCOUNT(ACCOUNT_ID) (1)"; SQL statement:
 insert into message(posted_by, message_text, time_posted_epoch) values (?, ?, ?) [23506-214]
-null
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='Over 255 characters                 Over 255 characters Over 255 characters Over 255 characters Over 255 characters                 Over 255 characters Over 255 characters Over 255 characters Over 255 characters                 Over 255 characters Over 255 characters Over 255 characters Over 255 characters                 Over 255 characters Over 255 characters Over 255 characters', time_posted_epoch=1669947792}1
 Value too long for column "MESSAGE_TEXT CHARACTER VARYING(255)": "'Over 255 characters                 Over 255 characters Over 255 characters Ove... (383)"; SQL statement:
 insert into message(posted_by, message_text, time_posted_epoch) values (?, ?, ?) [22001-214]
-null
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
-Value too long for column "MESSAGE_TEXT CHARACTER VARYING(255)": "'Over 255 characters                 Over 255 characters Over 255 characters Ove... (383)"; SQL statement:
-update message set message_text = ? where message_id = ? [22001-214]
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=2, username='user2', password='password'}
-Message{message_id=0, posted_by=1, message_text='message 2', time_posted_epoch=1669947792}1
-Message{message_id=2, posted_by=1, message_text='message 2', time_posted_epoch=1669947792}
-Message{message_id=0, posted_by=2, message_text='message 3', time_posted_epoch=1669947792}1
-Message{message_id=3, posted_by=2, message_text='message 3', time_posted_epoch=1669947792}
-Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
 Account{account_id=1, username='user', password='password'}
 Account{account_id=1, username='user', password='password'}
-Message{message_id=0, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}1
-Message{message_id=1, posted_by=1, message_text='hello message', time_posted_epoch=1669947792}
-[ERROR] Tests run: 20, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 21.148 s <<< FAILURE! - in MessagingIntegrationTest
-[ERROR] MessagingIntegrationTest.postAccountAndBlankMessage  Time elapsed: 1.063 s  <<< FAILURE!
-java.lang.AssertionError: expected:<400> but was:<200>
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.failNotEquals(Assert.java:835)
-	at org.junit.Assert.assertEquals(Assert.java:647)
-	at org.junit.Assert.assertEquals(Assert.java:633)
-	at MessagingIntegrationTest.postAccountAndBlankMessage(MessagingIntegrationTest.java:196)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runners.Suite.runChild(Suite.java:128)
-	at org.junit.runners.Suite.runChild(Suite.java:27)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junitcore.JUnitCore.run(JUnitCore.java:55)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:137)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:107)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:83)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:75)
-	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:158)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
-
-[ERROR] MessagingIntegrationTest.postManyAccountsAndMessagesThenGetMessagesByAccountIdTest  Time elapsed: 1.092 s  <<< FAILURE!
-java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:87)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertTrue(Assert.java:53)
-	at MessagingIntegrationTest.postManyAccountsAndMessagesThenGetMessagesByAccountIdTest(MessagingIntegrationTest.java:362)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runners.Suite.runChild(Suite.java:128)
-	at org.junit.runners.Suite.runChild(Suite.java:27)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junitcore.JUnitCore.run(JUnitCore.java:55)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:137)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:107)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:83)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:75)
-	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:158)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
-
-[ERROR] MessagingIntegrationTest.patchMessageTooLongTest  Time elapsed: 1.059 s  <<< FAILURE!
-java.lang.AssertionError: expected:<400> but was:<200>
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.failNotEquals(Assert.java:835)
-	at org.junit.Assert.assertEquals(Assert.java:647)
-	at org.junit.Assert.assertEquals(Assert.java:633)
-	at MessagingIntegrationTest.patchMessageTooLongTest(MessagingIntegrationTest.java:526)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runners.Suite.runChild(Suite.java:128)
-	at org.junit.runners.Suite.runChild(Suite.java:27)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junitcore.JUnitCore.run(JUnitCore.java:55)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:137)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:107)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:83)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:75)
-	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:158)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
-
-[ERROR] MessagingIntegrationTest.patchMessageBlankTest  Time elapsed: 1.046 s  <<< FAILURE!
-java.lang.AssertionError: expected:<400> but was:<200>
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.failNotEquals(Assert.java:835)
-	at org.junit.Assert.assertEquals(Assert.java:647)
-	at org.junit.Assert.assertEquals(Assert.java:633)
-	at MessagingIntegrationTest.patchMessageBlankTest(MessagingIntegrationTest.java:547)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.junit.runners.Suite.runChild(Suite.java:128)
-	at org.junit.runners.Suite.runChild(Suite.java:27)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junitcore.JUnitCore.run(JUnitCore.java:55)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:137)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:107)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:83)
-	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:75)
-	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:158)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
-
+Account{account_id=1, username='user', password='password'}
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.639 s - in MessagingIntegrationTest
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Failures: 
-[ERROR]   MessagingIntegrationTest.patchMessageBlankTest:547 expected:<400> but was:<200>
-[ERROR]   MessagingIntegrationTest.patchMessageTooLongTest:526 expected:<400> but was:<200>
-[ERROR]   MessagingIntegrationTest.postAccountAndBlankMessage:196 expected:<400> but was:<200>
-[ERROR]   MessagingIntegrationTest.postManyAccountsAndMessagesThenGetMessagesByAccountIdTest:362
-[INFO] 
-[ERROR] Tests run: 27, Failures: 4, Errors: 0, Skipped: 0
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  35.559 s
-[INFO] Finished at: 2023-02-12T19:34:38Z
+[INFO] Total time:  36.288 s
+[INFO] Finished at: 2023-02-12T21:41:27Z
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project Challenges: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /workspace/GitHub4lrg-pep-project/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -99,7 +99,6 @@ public class SocialMediaController {
         ObjectMapper mapper = new ObjectMapper();
         Message message = mapper.readValue(ctx.body(), Message.class);
         Message newMessage = messageService.addMessage(message);
-        //System.out.println(newMessage);
         if(newMessage == null){
             ctx.status(400);
         }else{
@@ -110,13 +109,18 @@ public class SocialMediaController {
      * Handler to retrieve all messages.
      * @param ctx the context object handles information HTTP requests and generates responses within Javalin. It will
      *            be available to this method automatically thanks to the app.put method.
+     * @throws JsonProcessingException
      */
-    public void getAllMessagesHandler(Context ctx){
+    public void getAllMessagesHandler(Context ctx) throws JsonProcessingException{
         List<Message> messages = messageService.getAllMessages();
         ctx.json(messages);
     }
-
-    public void getMessageByMessageIdHandler(Context ctx){
+   /**
+    * 
+    * @param ctx handler to retrive message by message_id
+    * @throws JsonProcessingException
+    */
+    public void getMessageByMessageIdHandler(Context ctx) throws JsonProcessingException{
         int message_id = Integer.parseInt(ctx.pathParam("message_id"));
         Message message = messageService.getMessageByMessageId(message_id);
         if(message != null){
@@ -124,7 +128,6 @@ public class SocialMediaController {
         }
         ctx.status(200);
     }
-
     /**
      * handler to delete message
      * @param ctx the javalin context object manages information about http request and response.
@@ -138,8 +141,11 @@ public class SocialMediaController {
         }
         ctx.status(200);
     } 
-
-
+    /**
+     * Handler to update a message by message_id
+     * @param ctx
+     * @throws JsonProcessingException
+     */
     public void updateMessageByMessageIdHandler(Context ctx) throws JsonProcessingException{
         ObjectMapper mapper = new ObjectMapper();
         Message message = mapper.readValue(ctx.body(), Message.class);
@@ -150,7 +156,11 @@ public class SocialMediaController {
         }
         ctx.json(mapper.writeValueAsString(updatedMessage));
     }
-
+    /**
+     * handler to retrive messages written by particular user
+     * @param ctx
+     * @throws JsonProcessingException
+     */
     public void getMessagePostedByHandler(Context ctx) throws JsonProcessingException {
         int account_id = Integer.parseInt(ctx.pathParam("account_id"));
         List<Message> message = messageService.getMessagePostedBy(account_id);

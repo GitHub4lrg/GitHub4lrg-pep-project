@@ -1,13 +1,8 @@
 package Service;
 
 import Model.Message;
-
 import java.util.List;
-
 import DAO.MessageDAO;
-
-//import static org.mockito.ArgumentMatchers.nullable;
-
 
 /**The purpose of a Service class is to contain "business logic" that sits between the web layer (controller) and
 * persistence layer (DAO). That means that the Service class performs tasks that aren't done through the web or
@@ -73,7 +68,6 @@ public class MessageService {
         return messageOnDb;
     }
     
-
     public Message updateMessageByMessageId(int message_id, Message message) {
         Message messageOnDb = this.messageDAO.getMessageByMessageId(message_id);
         if(messageOnDb == null || message.getMessage_text() == "" || message.getMessage_text().length() > 255)
@@ -85,6 +79,4 @@ public class MessageService {
         public List<Message> getMessagePostedBy(int posted_by) {
         return messageDAO.getMessagePostedBy(posted_by);
     }
-    
-    
 }
