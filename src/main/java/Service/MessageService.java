@@ -80,7 +80,7 @@ public class MessageService {
         return this.messageDAO.getMessageByMessageId(message_id);
     }
 
-    public Message getMessagePostedBy(int posted_by) {
+    public List<Message> getMessagePostedBy(int posted_by) {
         return messageDAO.getMessagePostedBy(posted_by);
     }
     

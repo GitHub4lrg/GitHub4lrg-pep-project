@@ -143,7 +143,7 @@ public class SocialMediaController {
     }
 
     public void getMessagePostedByHandler(Context ctx){
-        Message messages = messageService.getMessagePostedBy(0);
+        List<Message> messages = messageService.getMessagePostedBy(0);
         ctx.json(messages);
     }
 }

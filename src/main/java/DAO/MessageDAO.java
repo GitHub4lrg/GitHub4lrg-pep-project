@@ -39,11 +39,11 @@ public class MessageDAO {
                         rs.getLong("time_posted_epoch"));
                         
                 messages.add(message);
-            }return messages;
+            }//return messages;
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
-        return null;
+        return messages;
     }
 
     /**
@@ -144,7 +144,7 @@ public class MessageDAO {
          * retrieve all messages written by a particular user from message table
          * @return all messages
          */
-        public Message getMessagePostedBy(int posted_by){
+        public List<Message> getMessagePostedBy(int posted_by){
             Connection connection = ConnectionUtil.getConnection();
             List<Message> messages = new ArrayList<>();
             try{
@@ -164,6 +164,6 @@ public class MessageDAO {
             }catch(SQLException e){
                 System.out.println(e.getMessage());
             }
-            return null;
+            return messages;
         }
 }
