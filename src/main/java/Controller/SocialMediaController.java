@@ -57,6 +57,7 @@ public class SocialMediaController {
         ObjectMapper mapper = new ObjectMapper();
         Account account = mapper.readValue(ctx.body(), Account.class);
         Account addedAccount = accountService.addAccount(account);
+        System.out.println(addedAccount);
         if(addedAccount == null){
             ctx.status(400);
         }else{
@@ -78,7 +79,6 @@ public class SocialMediaController {
         Account account = mapper.readValue(ctx.body(), Account.class);
         Account verifyAccount = accountService.getAllAccounts(account);
         if(verifyAccount != null){
-            System.out.println(verifyAccount);
             ctx.json(mapper.writeValueAsString(verifyAccount));
         }else{
             ctx.status(401);
@@ -99,10 +99,12 @@ public class SocialMediaController {
         ObjectMapper mapper = new ObjectMapper();
         Message message = mapper.readValue(ctx.body(), Message.class);
         Message newMessage = messageService.addMessage(message);
-        if(newMessage != null){
+        System.out.println(newMessage);
+        if(newMessage == null){
             ctx.status(400);
+            
         }else{
-            ctx.json(mapper.writeValueAsString(newMessage));
+            ctx.json(newMessage);
         }
     }
     /**
@@ -116,15 +118,24 @@ public class SocialMediaController {
     }
 
     public void getMessageByMessageIdHandler(Context ctx){
-        Message message = messageService.getMessageByMessageId(0);
-        ctx.json(message);
-    }
-
-    public void deleteMessageByMessageIdHandler(Context ctx) throws JsonProcessingException {
         int message_id = Integer.parseInt(ctx.pathParam("message_id"));
-        Message message = messageService.deleteMessageByMessageId(message_id);
+        Message message = messageService.getMessageByMessageId(message_id);
         if(message != null){
             ctx.json(message);
+        }
+        ctx.status(200);
+    }
+
+    /**
+     * handler to delete message
+     * @param ctx the javalin context object manages information about http request and response.
+     * @throws JsonProcessingException
+     */
+    private void deleteMessageByMessageIdHandler(Context ctx) throws JsonProcessingException {
+        int message_id = Integer.parseInt(ctx.pathParam("message_id"));
+        Message deletedMessage = messageService.deleteMessageByMessageId(message_id);
+        if(deletedMessage != null){
+            ctx.json(deletedMessage);
         }
         ctx.status(200);
     } 
@@ -135,7 +146,7 @@ public class SocialMediaController {
         Message message = mapper.readValue(ctx.body(), Message.class);
         int message_id = Integer.parseInt(ctx.pathParam("message_id"));
         Message updatedMessage = messageService.updateMessageByMessageId(message_id, message);
-        System.out.println(updatedMessage);
+        //System.out.println(updatedMessage);
         if(updatedMessage == null){
             ctx.status(400);
         }

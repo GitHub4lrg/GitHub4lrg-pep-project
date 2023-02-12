@@ -51,22 +51,25 @@ public class MessageService {
      * @return message if successfully persisted, null if not successfully persisted (eg. if the message pk was already in use.)
      */
     public Message addMessage(Message message){
-        Message newMessage = this.messageDAO.getMessageByMessageId(message.getMessage_id());
-        if(newMessage != null)
-        return null;
-        messageDAO.insertMessage(message);
-        return message;
+        System.out.println(message+"1");
+    /*     Message newMessage = this.messageDAO.getMessageByMessageId(message.getMessage_id());
+        
+        if(newMessage != null) return null;*/
+
+        return messageDAO.insertMessage(message);
+        //return message;
         
     }
 
     public Message getMessageByMessageId(int message_id) {
         return messageDAO.getMessageByMessageId(message_id);
+        
     }
     
     public Message deleteMessageByMessageId(int message_id) {
         Message messageOnDb = messageDAO.getMessageByMessageId(message_id);
         if(messageOnDb == null)
-        return null;
+        return messageDAO.deleteMessageByMessageId(message_id);
         messageDAO.deleteMessageByMessageId(message_id);
         return messageOnDb;
     }
