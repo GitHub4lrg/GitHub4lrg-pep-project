@@ -34,7 +34,7 @@ null
 Account{account_id=1, username='user', password='password'}
 null
 Account{account_id=1, username='user', password='password'}
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.039 s - in AuthIntegrationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.114 s - in AuthIntegrationTest
 [INFO] Running MessagingIntegrationTest
 Account{account_id=1, username='user', password='password'}
 Account{account_id=1, username='user', password='password'}
@@ -58,7 +58,7 @@ Account{account_id=2, username='user2', password='password'}
 Account{account_id=1, username='user', password='password'}
 Account{account_id=1, username='user', password='password'}
 Account{account_id=1, username='user', password='password'}
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.639 s - in MessagingIntegrationTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.772 s - in MessagingIntegrationTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -67,6 +67,6 @@ Account{account_id=1, username='user', password='password'}
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  36.288 s
-[INFO] Finished at: 2023-02-12T21:41:27Z
+[INFO] Total time:  36.004 s
+[INFO] Finished at: 2023-02-12T22:24:30Z
 [INFO] ------------------------------------------------------------------------
